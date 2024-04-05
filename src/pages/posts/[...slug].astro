@@ -1,0 +1,23 @@
+---
+// Query the collection of posts
+
+import { getCollection } from 'astro:content';
+import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro';
+
+export async function getStaticPaths() {
+  // grabs collection from config.ts by name, 'posts'
+  const blogEntries = await getCollection('posts'); 
+  // map each post from the collection to an entry
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<!-- render the content of each entry under the same layout -->
+<MarkdownPostLayout frontmatter={entry.data}>
+    <Content />
+</MarkdownPostLayout>

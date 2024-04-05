@@ -1,0 +1,3 @@
+ctrl + C (end program)
+git add * 
+git commit -m "<message>"

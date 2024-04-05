@@ -1,0 +1,21 @@
+<!-- List of all articles published -->
+---
+// query content
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Main from "../components/Main.astro"
+import BlogPost from "../components/BlogPost.astro"
+
+// fetch content and metadata from your Markdown files.
+const allPosts = await getCollection("posts");
+---
+
+<Layout title="Unspoken Swag" subtitle="| Blog">
+	<Main>
+        <h1 class="pb-3">Archive</h1>
+        <ul>
+            <!-- return data from each post, frontmatter from data property, page slug to link to each page -->
+            {allPosts.map((post) => <BlogPost url={"/posts/" + post.slug} title={post.data.title} date={post.data.date} />)}
+        </ul>
+	</Main>
+</Layout>

@@ -1,0 +1,7 @@
+---
+// This component is what is displayed as a list of blog post titles in the Blog page
+const { title, url, date } = Astro.props
+---
+
+<!-- date: title -->
+<li><a href={url} class="text-white font-light"><span class="text-slate-500 font-extralight text-sm">{date}: </span>{title}</a></li>
