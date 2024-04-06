@@ -1,8 +1,32 @@
 ---
 // Layout/appearance of an individual blog post
 // [...slug].astro => MarkdownPostLayout.astro
+
+import { Image } from "astro:assets";
+import Layout from "./Layout.astro"
 const { frontmatter } = Astro.props;
+
+// TODO: Image, back button
 ---
-<h1>{frontmatter.title}</h1>
-<p>Written by {frontmatter.author}</p>
-<slot />
+
+<Layout title="Unspoken Swag" subtitle="| Blog">
+
+    <body class="flex justify-center items-center h-screen">
+        <div class="max-w-screen-sm mx-auto">
+            <!-- The highest div centered on the screen -->
+            <div class="flex flex-col">
+                <!-- Contents justified to the left -->
+                <p class="text-sm font-semibold pb-1">{frontmatter.title}</p>
+                <div class="flex space-x-1 pb-4">
+                    <p class="text-xs text-slate-500 font-semibold">{frontmatter.author}</p>
+                    <p class="text-xs text-slate-500 font-semibold">{frontmatter.date}</p>
+                </div>
+                <div class="font-extralight text-justify">
+                    <slot /> 
+                </div>
+            </div>
+        </div>
+    </body>
+
+
+</Layout>

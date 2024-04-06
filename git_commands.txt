@@ -1,3 +1,9 @@
 ctrl + C (end program)
+git status (view current changes)
+git log (view commit history)
 git add * 
 git commit -m "<message>"
+
+npm run dev
+
+https://docs.astro.build/en/tutorials/add-content-collections/#generate-pages-from-a-collection
