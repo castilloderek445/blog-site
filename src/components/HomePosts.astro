@@ -1,0 +1,16 @@
+---
+// This component is what is displayed on index.astro
+const { title, url, date, body, author } = Astro.props
+---
+
+
+<!-- justifies content to left -->
+<div class="flex flex-col">
+    <a href={url} class="text-white font-semibold"></span>{title}</a>
+    <p class="text-slate-500 font-semibold text-sm mb-4">{author}</p>
+    <p class="text-white font-light line-clamp-4 mb-2">{body}</p>
+    <a class="mb-4" href={url}><u>read more</u></a>
+    <p class="text-slate-500 font-semibold text-sm">{date.toString().slice(0,21)}</p>
+    <hr class="h-px mt-6 mb-3 bg-slate-700 border-0 dark:bg-slate-700">   
+</div>
+

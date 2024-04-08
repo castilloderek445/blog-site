@@ -5,7 +5,7 @@ const postsCollection = defineCollection({
     type: 'content',
     schema: z.object({
         author: z.string(),
-        date: z.string(),
+        date: z.string().transform((str) => new Date(str)),
         // image: z.object({
         //     url: z.string(),
         //     alt: z.string(),

@@ -6,6 +6,9 @@ export default {
 			colors: {
 				my_color: '#4dcb7a',
 			},
+			screens: {
+				'mdlg': '700px', // Adjust the value as needed
+			  },
 		},
 	},
 	plugins: [],

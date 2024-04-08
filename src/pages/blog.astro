@@ -10,12 +10,21 @@ import BlogPost from "../components/BlogPost.astro"
 const allPosts = await getCollection("posts");
 ---
 
-<Layout title="Unspoken Swag" subtitle="| Blog">
+<Layout title="Unspoken Swag" subtitle="| Archive">
 	<Main>
-        <h1 class="pb-3">Archive</h1>
+        <h1 class="pb-3">Blog Archive</h1>
         <ul>
             <!-- return data from each post, frontmatter from data property, page slug to link to each page -->
-            {allPosts.map((post) => <BlogPost url={"/posts/" + post.slug} title={post.data.title} date={post.data.date} />)}
+            {allPosts
+                .sort((a, b) => b.data.date.getTime() - a.data.date.getTime()) // sort by date in descending order
+                .map((post) => (
+                  <BlogPost
+                    key={post.slug}
+                    url={"/posts/" + post.slug}
+                    title={post.data.title}
+                    date={post.data.date}
+                  />
+            ))}
         </ul>
 	</Main>
 </Layout>

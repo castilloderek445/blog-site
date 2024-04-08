@@ -8,13 +8,17 @@ import {Image} from "astro:assets"
 
 <Layout title="Unspoken Swag" subtitle='| About'>
 	<Main>
-        <h1 class="pb-3">Useless blogging for my own self satisfaction.</h1>
-        <Image
-            src="/images/wahoo.jpg"
-            alt="wahoo"
-            width={500}
-            height={500}
-        />
+        <div class="flex flex-col items-center">
+            <h1 class="pb-3">Useless blogging for my own self satisfaction.</h1>
+            <div class="flex justify-center">
+                <Image
+                    src="/images/wahoo.jpg"
+                    alt="wahoo"
+                    width={500}
+                    height={500}
+                />
+            </div>
+        </div>
 
 	</Main>
 </Layout>

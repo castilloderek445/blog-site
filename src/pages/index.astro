@@ -1,11 +1,37 @@
 <!-- Latest 4 posts -->
 ---
+import { getCollection } from "astro:content";
+import HomePosts from "../components/HomePosts.astro"
 import Main from '../components/Main.astro';
 import Layout from '../layouts/Layout.astro';
+
+const allPosts = await getCollection("posts");
+
 ---
 
 <!-- title is the title on the tab -->
 <Layout title="Unspoken Swag" subtitle=''>
 	<Main>
+	<!-- centers body to screen -->
+		<article class="flex flex-col items-center h-screen pt-2">
+			<!-- sets maximum width to about the middle third of the screen -->
+			<div class="max-w-screen-mdlg mx-auto"> 
+				<!-- return data from each post, frontmatter from data property, page slug to link to each page -->
+				{allPosts
+					.sort((a, b) => b.data.date.getTime() - a.data.date.getTime()) // sort by date in descending order
+					.map((post) => (
+					  <HomePosts
+						key={post.slug}
+						url={"/posts/" + post.slug}
+						title={post.data.title}
+						date={post.data.date}
+						body={post.body}
+						author={post.data.author}
+					  />
+				))}
+			</div>
+
+		</article>
 	</Main>
+
 </Layout>

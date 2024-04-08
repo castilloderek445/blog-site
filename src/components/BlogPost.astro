@@ -4,4 +4,4 @@ const { title, url, date } = Astro.props
 ---
 
 <!-- date: title -->
-<li><a href={url} class="text-white font-light"><span class="text-slate-500 font-extralight text-sm">{date}: </span>{title}</a></li>
+<li><a href={url} class="text-white font-light"><span class="text-slate-500 font-extralight text-sm">{date.toString().slice(3,15)}: </span>{title}</a></li>

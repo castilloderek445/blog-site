@@ -10,20 +10,21 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout title="Unspoken Swag" subtitle="| Blog">
-
+    
+    <!-- centers body to screen -->
     <body class="flex justify-center items-center h-screen">
-        <div class="max-w-screen-sm mx-auto">
-            <!-- The highest div centered on the screen -->
+        <!-- sets maximum width to about the middle third of the screen -->
+        <div class="max-w-screen-mdlg mx-auto">
+
+            <!-- justifies content to left -->
             <div class="flex flex-col">
-                <!-- Contents justified to the left -->
-                <p class="text-sm font-semibold pb-1">{frontmatter.title}</p>
-                <div class="flex space-x-1 pb-4">
-                    <p class="text-xs text-slate-500 font-semibold">{frontmatter.author}</p>
-                    <p class="text-xs text-slate-500 font-semibold">{frontmatter.date}</p>
-                </div>
-                <div class="font-extralight text-justify">
+                <p class="font-semibold">{frontmatter.title}</p>
+                <p class="text-sm text-slate-500 font-semibold mb-4">{frontmatter.author}</p>
+                <div class="font-light text-justify">
                     <slot /> 
                 </div>
+                <p class="text-sm text-slate-500 font-semibold my-6">{frontmatter.date.toString().slice(0,21)}</p>
+
             </div>
         </div>
     </body>

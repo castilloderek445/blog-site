@@ -1,6 +1,6 @@
 ---
 author: joe-mama
-date: 04/05/24
+date: "2024-01-02T00:00"
 featured: false
 image: ./images/angler.png
 title: what the flip an exploration of the sick ill mind of joe
