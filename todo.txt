@@ -1,0 +1,5 @@
+TODO:
+
+- improve date strings
+- back button in posts
+- add images
