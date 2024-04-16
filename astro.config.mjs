@@ -8,5 +8,6 @@ const BASE_URL = LIVE_URL
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind()],
-  site: BASE_URL
+  site: BASE_URL,
+  output: "static"
 });
